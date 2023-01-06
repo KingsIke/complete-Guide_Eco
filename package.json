@@ -1,0 +1,33 @@
+{
+  "name": "shop",
+  "version": "1.0.0",
+  "description": "MINIPROJECT",
+  "main": "index.js",
+  "author": "KingsIke",
+  "license": "MIT",
+  "scripts": {
+    "compile": "tsc -w",
+    "start": "nodemon dist/app"
+  },
+  "dependencies": {
+    "cookie-parser": "^1.4.6",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "http-errors": "^2.0.0",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.20",
+    "pg": "^8.8.0",
+    "sequelize": "^6.28.0",
+    "typescript": "^4.9.4",
+    "uuid": "^9.0.0"
+  },
+  "devDependencies": {
+    "@types/cookie-parser": "^1.4.3",
+    "@types/express": "^4.17.15",
+    "@types/http-errors": "^2.0.1",
+    "@types/morgan": "^1.9.3",
+    "@types/sequelize": "^4.28.14",
+    "@types/uuid": "^9.0.0",
+    "@types/uuidv4": "^5.0.0"
+  }
+}
