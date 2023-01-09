@@ -9,7 +9,7 @@ import adminRoutes from './routes/admin'
 import userRoutes from './routes/user'
 import { UserAttribute, UserInstance } from "./model/user"
 import { where } from "sequelize"
-// import path from "path"
+import path from "path"
 
 
 
@@ -48,8 +48,11 @@ app.use('/admin', adminRoutes)
 app.use('/shop', shopRoutes)
 app.use('/user', userRoutes)
 
+app.use((req: Request, res: Response, next: NextFunction) => {
+    res.status(404).sendFile(path.join(__dirname, '.././', 'views', '404.html'))
+})
 
 
 app.listen(3040, () => {
-    console.log('On Port 3040')
+    console.log('On Port 3040 page 72')
 })
