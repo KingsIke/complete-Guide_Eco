@@ -1,13 +1,14 @@
 import express from "express"
 import path from "path"
+import { products } from "./admin"
 // import { createProduct, deleteProduct, getProduct, getSingleProduct, updateProduct } from "../controllers/shop"
 
 const router = express.Router()
 
 
-router.get('/', (req, res, next) => {
-    res.sendFile(path.join(__dirname, '../../', 'views', 'shop.html'))
-    // res.render("/shop")
+router.get('/', async (req, res, next) => {
+    const produces = await products
+    return res.render("shop", { prods: produces, title: 'My Shop', path: '/shop' })
     // res.send("kings")
 })
 // router.post('/create', createProduct)

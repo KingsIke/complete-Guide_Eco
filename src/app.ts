@@ -22,8 +22,8 @@ const app = express()
 connectDB()
 
 // view engine setup
-// app.set('view engine', 'html');
-// app.set('views', path.join(__dirname, '..', 'views'));
+app.set('view engine', 'pug');
+app.set('views', path.join(__dirname, '.././', 'views'));
 // app.set('layout', 'layouts/layout');
 
 
@@ -31,6 +31,7 @@ connectDB()
 app.use(express.json());
 app.use(logger('dev'));
 app.use(cookieParser());
+app.use(express.static(path.join(__dirname, '.././', 'public')))
 // app.use()
 
 
@@ -49,7 +50,7 @@ app.use('/shop', shopRoutes)
 app.use('/user', userRoutes)
 
 app.use((req: Request, res: Response, next: NextFunction) => {
-    res.status(404).sendFile(path.join(__dirname, '.././', 'views', '404.html'))
+    res.status(404).render('404', { title: '404' })
 })
 
 

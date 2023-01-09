@@ -4,12 +4,16 @@ import path from "path"
 
 const router = Router()
 
+export const products: any = []
+
 router.get('/add-product', (req: Request, res: Response, next: NextFunction) => {
-    res.sendFile(path.join(__dirname, '../../', 'views', 'add-product.html'))
+    res.render('add-product', { title: 'Add Product', path: '/admin/add-product' })
 })
 router.post('/add-product', (req: Request, res: Response, next: NextFunction) => {
     console.log(req.body)
-    res.redirect('/')
+    products.push({ title: req.body.title })
+
+    res.redirect('/shop')
 })
 
 export default router
