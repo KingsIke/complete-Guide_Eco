@@ -1,19 +1,13 @@
 import express, { Request, Response, NextFunction, Router } from "express"
 // import { Router } from "express";
 import path from "path"
+import { getAddProduct, createAddProduct } from "../controllers/products"
 
 const router = Router()
 
-export const products: any = []
+export const products: any[] = []
 
-router.get('/add-product', (req: Request, res: Response, next: NextFunction) => {
-    res.render('add-product', { title: 'Add Product', path: '/admin/add-product' })
-})
-router.post('/add-product', (req: Request, res: Response, next: NextFunction) => {
-    console.log(req.body)
-    products.push({ title: req.body.title })
-
-    res.redirect('/shop')
-})
+router.get('/add-product', getAddProduct)
+router.post('/add-product', createAddProduct)
 
 export default router
